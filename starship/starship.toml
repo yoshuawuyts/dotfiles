@@ -1,0 +1,90 @@
+# Insert a blank line between shell prompts
+add_newline = true
+
+# Increase the default command timeout to 2 seconds
+command_timeout = 2000
+
+# Define the order and format of the information in our prompt
+format = """\
+[](fg:#3B76F0)\
+$directory\
+${custom.directory_separator_not_git}\
+${custom.directory_separator_git}\
+$symbol($git_branch[](fg:#FCF392))\
+$symbol( $git_commit$git_status$git_metrics$git_state)$fill$cmd_duration$nodejs$all\
+${custom.git_config_email}
+$character"""
+
+# Fill character (empty space) between the left and right prompt
+[fill]
+symbol = " "
+
+# Disable the line break between the first and second prompt lines
+[line_break]
+disabled = true
+
+# Customize the format of the working directory
+[directory]
+truncate_to_repo = true
+format = "[ﱮ $path ]($style)"
+style = "fg:text bg:#3B76F0"
+
+[git_branch]
+symbol = " "
+format = "[ $symbol$branch(:$remote_branch) ]($style)"
+style = "fg:#1C3A5E bg:#FCF392"
+
+[git_metrics]
+disabled = false
+
+[nodejs]
+format = "via [$symbol($version )]($style)"
+style = "yellow"
+
+[package]
+disabled = true # Enable to output the current working directory's package version
+format = "[$symbol$version]($style) "
+display_private = true
+
+# Output the command duration if over 2 seconds
+[cmd_duration]
+min_time = 2_000
+format = "[  $duration ]($style)"
+style = "white"
+
+# Customize the battery indicator
+[battery]
+format = "[$symbol $percentage]($style) "
+empty_symbol = "🪫"
+charging_symbol = "🔋"
+full_symbol = '🔋'
+
+[[battery.display]]
+threshold = 10
+style = 'red'
+
+# Output the current git config email address
+[custom.git_config_email]
+description = "Output the current git user's configured email address."
+command = "git config user.email"
+format = "\n[$symbol(  $output)]($style)"
+# Only when inside git repository
+when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
+style = "text"
+
+# Output a styled separator right after the directory when inside a git repository.
+[custom.directory_separator_git]
+description = "Output a styled separator right after the directory when inside a git repository."
+command = ""
+format = "[](fg:#3B76F0 bg:#FCF392)"
+# Only when inside git repository
+when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
+
+# Output a styled separator right after the directory when NOT inside a git repository.
+[custom.directory_separator_not_git]
+description = "Output a styled separator right after the directory when NOT inside a git repository."
+command = ""
+format = "[](fg:#3B76F0)"
+# Only when NOT inside a git repository
+when = "! git rev-parse --is-inside-work-tree > /dev/null 2>&1"
+
