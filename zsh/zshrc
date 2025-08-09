@@ -35,7 +35,6 @@ export PATH="$PATH:/Users/yosh/.local/bin"
 
 
 # atuin
-. "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh)"
 
 # setup aliases
