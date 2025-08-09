@@ -1,0 +1,6 @@
+[editor.statusline]
+left = ["mode", "spinner", "version-control", "file-name"]
+
+[editor.lsp]
+enable = true
+
