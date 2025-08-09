@@ -10,6 +10,9 @@ LC_ALL=en_US.UTF-8
 # set vim mode
 set -o vi
 
+# disable flashing on macOS terminal
+set bell-style none
+
 # set path
 export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/yosh/.cargo/bin
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
