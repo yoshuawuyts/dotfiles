@@ -20,6 +20,7 @@ export PATH=/Users/$USER/bin:$PATH
 export WASMTIME_HOME="$HOME/.wasmtime"
 export PATH="$WASMTIME_HOME/bin:$PATH"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export PATH="$USER/local/bin:$PATH"
 
 # source completions
 source "$HOME/.zsh/completions/wasm-tools"

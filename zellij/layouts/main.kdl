@@ -1,12 +1,10 @@
 layout {
-    pane
     pane split_direction="vertical" {
-        pane
-        pane command="lazyjj"
+        pane command="hx"
 
 	pane split_direction="horizontal" {
+            pane command="lazyjj"
 	    pane
-	    pane command="lazyjj"
-	}
+        }
     }
 }
