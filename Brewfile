@@ -1,3 +1,5 @@
+
+brew "atuin"
 brew "autoconf"
 brew "bat"
 brew "cairo"
