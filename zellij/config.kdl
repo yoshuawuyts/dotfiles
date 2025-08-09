@@ -363,3 +363,19 @@ plugins {
 // Default: false
 //
 // disable_session_metadata true
+
+themes {
+    default {
+        fg "#D3C0C8"
+        bg "#2D2D2D"
+        black "#2D2D2D"
+        red "#F2777A"
+        green "#99cc99"
+        yellow "#ffcc99"
+        blue "#6699cc"
+        magenta "#cc99cc"
+        cyan "#66cccc"
+        white "#d3c0c8"
+        orange "#ffcc99"
+    }
+}

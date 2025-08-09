@@ -18,20 +18,25 @@ export WASMTIME_HOME="$HOME/.wasmtime"
 export PATH="$WASMTIME_HOME/bin:$PATH"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
-# wasm-tools completions
+# source completions
 source "$HOME/.zsh/completions/wasm-tools"
+source "$HOME/.zsh/completions/atuin"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
+# Created by `pipx` on 2025-02-03 14:28:18
+export PATH="$PATH:/Users/yosh/.local/bin"
+
+
 # atuin
 . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh)"
 
 # setup aliases
-alias ls="eza -lahG --icons=auto --no-permissions --no-user --icons=always --time-style='+%Y-%m-%d %H:%M' --sort type"
+alias ls="eza -lah --icons=auto --no-permissions --no-user --icons=always --time-style='+%Y-%m-%d %H:%M' --sort type"
 alias t="eza -lah --tree --icons=auto --no-permissions --no-user --icons=always --no-time --git-ignore --sort type"
 alias cat="bat"
 alias grep="rg"
@@ -48,3 +53,6 @@ eval "$(starship init zsh)"
 
 # init zellij session
 [[ -z "${ZELLIJ_SESSION_NAME}" ]] && [[ "$TERM_PROGRAM" != "vscode" ]] && zellij attach --create
+
+# start autosuggestions
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
