@@ -61,6 +61,7 @@ brew "zola"
 brew "zoxide"
 brew "zsh-autosuggestions"
 brew "zstd"
+brew "shellcheck"
 
 cask "1password-cli"
 cask "alacritty"

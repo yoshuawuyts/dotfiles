@@ -1,0 +1,12 @@
+layout {
+    pane
+    pane split_direction="vertical" {
+        pane
+        pane command="lazyjj"
+
+	pane split_direction="horizontal" {
+	    pane
+	    pane command="lazyjj"
+	}
+    }
+}

@@ -8,3 +8,7 @@ mkdir -p "$HOME/.config/zellij"
 src="$dirname/config.kdl"
 dst="$HOME/.config/zellij/config.kdl"
 _link "$src" "$dst"
+
+src="$dirname/layouts"
+dst="$HOME/.config/zellij/layouts"
+_link "$src" "$dst"
