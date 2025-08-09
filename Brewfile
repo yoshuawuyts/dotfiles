@@ -40,7 +40,7 @@ brew "ollama"
 brew "openjpeg"
 brew "oras"
 brew "pandoc"
-brew "pipx
+brew "pipx"
 brew "protobuf"
 brew "rbenv"
 brew "readline"
