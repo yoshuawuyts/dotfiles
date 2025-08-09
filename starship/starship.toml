@@ -32,7 +32,7 @@ style = "fg:text bg:#3B76F0"
 
 [git_branch]
 symbol = " "
-format = "[on $branch(:$remote_branch) ]($style)"
+format = "[on $branch(:$remote_branch)]($style) "
 style = "fg:#1C3A5E bg:#FCF392"
 
 [git_metrics]
