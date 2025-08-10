@@ -55,7 +55,9 @@ alias g="git"
 eval "$(starship init zsh)"
 
 # init zellij session
-[[ -z "${ZELLIJ_SESSION_NAME}" ]] && [[ "$TERM_PROGRAM" != "vscode" ]] && zellij attach --create
+if [[ -z "${ZELLIJ_SESSION_NAME}" && "$TERM_PROGRAM" != "vscode" ]]; then
+    zellij -l welcome
+fi
 
 # start autosuggestions
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
