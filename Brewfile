@@ -76,8 +76,3 @@ cask "font-hack-nerd-font"
 
 tap "nikitabobko/tap"
 cask "nikitabobko/tap/aerospace"
-
-# TODO: brew services start sketchybar
-tap "FelixKratz/formulae"
-brew "FelixKratz/formulae/sketchybar"
-cask "font-sketchybar-app-font"
