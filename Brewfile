@@ -1,4 +1,3 @@
-
 brew "atuin"
 brew "autoconf"
 brew "bat"
@@ -73,4 +72,12 @@ cask "josm"
 cask "signal"
 cask "vlc"
 cask "wezterm"
+cask "font-hack-nerd-font"
 
+tap "nikitabobko/tap"
+cask "nikitabobko/tap/aerospace"
+
+# TODO: brew services start sketchybar
+tap "FelixKratz/formulae"
+brew "FelixKratz/formulae/sketchybar"
+cask "font-sketchybar-app-font"
