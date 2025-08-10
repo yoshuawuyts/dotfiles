@@ -157,3 +157,32 @@ outer.right =      20
 
 [workspace-to-monitor-force-assignment]
     0 = 'Elgato Prom.'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'wezterm'
+run = ['move-node-to-workspace 1']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'GitHub'
+run = ['move-node-to-workspace 1']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Safari'
+run = ['move-node-to-workspace 2']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Obsidian'
+run = ['move-node-to-workspace 3']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Zulip'
+run = ['move-node-to-workspace 4']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Teams'
+run = ['move-node-to-workspace 4']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Signal'
+run = ['move-node-to-workspace 4']
+
