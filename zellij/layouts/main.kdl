@@ -2,9 +2,9 @@ layout {
     pane split_direction="vertical" {
         pane command="hx"
 
-	pane split_direction="horizontal" {
-            pane command="lazyjj"
-	    pane
+	    pane split_direction="horizontal" {
+            pane command="lazyjj" borderless=true
+ 	        pane
         }
     }
 }
