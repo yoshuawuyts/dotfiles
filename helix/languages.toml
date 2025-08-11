@@ -1,0 +1,6 @@
+[[language]]
+name = "any"
+scope = ""
+file-types = []
+roots = []
+indent = { tab-width = 2, unit = "  " }
