@@ -4,7 +4,7 @@ layout {
 
 	   pane split_direction="horizontal" stacked=true {
            pane name="Files" command="yazi"
-           pane name="Version Control" command="lazyjj"
+           pane name="Version Control" command="gitui"
            pane name="Terminal"
         }
 
