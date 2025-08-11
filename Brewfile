@@ -83,13 +83,10 @@ cask "wezterm"
 mas "1Password for Safari", id: 1569813296  
 mas "Adblock Plus", id: 1432731683  
 mas "Amphetamine", id: 937984704   
-mas "Azure VPN Client", id: 1553936137  
 mas "DaVinci Resolve", id: 571213070   
 mas "Emby", id: 992180193   
 mas "Flighty", id: 1358823008  
 mas "GarageBand", id: 682658836   
-mas "Homecoming for Mastodon", id: 1666139593
-mas "Hush", id: 1544743900  
 mas "iMovie", id: 408981434   
 mas "Infuse", id: 1136220934  
 mas "iStat Menus", id: 1319778037  
@@ -106,6 +103,8 @@ mas "Slack", id: 803453959
 mas "Tailscale", id: 1475387142  
 mas "TestFlight", id: 899247664   
 mas "Time Out", id: 402592703   
-mas "Windows App", id: 1295203466  
 mas "Xcode", id: 497799835   
 
+# Microsoft
+mas "Azure VPN Client", id: 1553936137  
+mas "Windows App", id: 1295203466  
