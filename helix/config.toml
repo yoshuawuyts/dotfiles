@@ -13,9 +13,6 @@ cursor-line = "warning"
 [editor.statusline]
 left = ["mode", "spinner", "version-control", "file-name"]
 
-[editor.lsp]
-enable = true
-
 [editor.indent-guides]
 render = true
 character = "╎"
