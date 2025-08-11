@@ -1,16 +1,19 @@
 layout {
-    pane split_direction="vertical" {
-        pane name="Editor" command="hx" args="."
+    pane split_direction="horizontal" {
+        pane split_direction="vertical" {
+            pane name="Editor" command="hx"
 
-	   pane split_direction="horizontal" stacked=true {
-           pane name="Files" command="yazi"
-           pane name="Version Control" command="lazygit"
-           pane name="Terminal"
+	        pane split_direction="horizontal" stacked=true {
+                pane name="Files" command="yazi"
+                pane name="Version Control" command="lazygit"
+                pane name="Terminal"
+            }
         }
-
-        pane size=1 borderless=true {
+        pane size=2 borderless=true {
+            plugin location="zellij:compact-bar"
+        }
+        pane size=2 borderless=true {
             plugin location="zellij:status-bar"
-            plugin location="zellij:tab-bar"
         }
     }
 }
