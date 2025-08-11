@@ -1,0 +1,19 @@
+#!/bin/bash
+ 
+# Ensure first argument is provided
+if [ -z "$1" ]; then
+  echo "Usage: $0 <session-name>"
+  exit 1
+fi
+
+# Find a dir
+dir="$(zoxide query "$1")"
+if [ $? -ne 0 ]; then
+    echo "could not find a match for $1"
+    exit 1
+fi
+
+# Change the dir
+cd "$dir" || exit 1
+zellij --layout main
+# zellij action rename-session "$1"
