@@ -16,7 +16,6 @@ left = ["mode", "spinner", "version-control", "file-name"]
 [editor.indent-guides]
 render = true
 character = "╎"
-skip-levels = 1
 
 [keys.normal]
 # Print the current line's git blame information to the statusline.
