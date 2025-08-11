@@ -186,3 +186,6 @@ run = ['move-node-to-workspace 4']
 if.app-name-regex-substring = 'Signal'
 run = ['move-node-to-workspace 4']
 
+[[on-window-detected]]
+if.app-name-regex-substring = 'Outlook'
+run = ['move-node-to-workspace 5']
