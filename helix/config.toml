@@ -1,5 +1,11 @@
 theme = "base16_transparent"
 
+[editor]
+rulers = [
+    80,  # Rust max comment len
+    100, # Rust max line len
+]
+
 [editor.statusline]
 left = ["mode", "spinner", "version-control", "file-name"]
 
