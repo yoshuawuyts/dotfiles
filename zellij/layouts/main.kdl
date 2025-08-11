@@ -1,10 +1,10 @@
 layout {
     pane split_direction="vertical" {
-        pane command="hx ." name="Editor"
+        pane name="Editor" command="hx" args="."
 
 	   pane split_direction="horizontal" stacked=true {
            pane name="Files" command="yazi"
-           pane name="Version Control" command="gitui"
+           pane name="Version Control" command="lazygit"
            pane name="Terminal"
         }
 
