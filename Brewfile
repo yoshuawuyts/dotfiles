@@ -1,3 +1,5 @@
+tap "nikitabobko/tap"
+
 brew "atuin"
 brew "autoconf"
 brew "bat"
@@ -35,6 +37,7 @@ brew "koka"
 brew "lazyjj"
 brew "llvm"
 brew "lsusb"
+brew "mas"
 brew "make"
 brew "mdbook"
 brew "ninja"
@@ -68,12 +71,41 @@ cask "alacritty"
 cask "amethyst"
 cask "dropbox"
 cask "firefox"
+cask "font-hack-nerd-font"
 cask "foobar2000"
 cask "josm"
+cask "leader-key"
+cask "nikitabobko/tap/aerospace"
 cask "signal"
 cask "vlc"
 cask "wezterm"
-cask "font-hack-nerd-font"
 
-tap "nikitabobko/tap"
-cask "nikitabobko/tap/aerospace"
+mas "1Password for Safari", id: 1569813296  
+mas "Adblock Plus", id: 1432731683  
+mas "Amphetamine", id: 937984704   
+mas "Azure VPN Client", id: 1553936137  
+mas "DaVinci Resolve", id: 571213070   
+mas "Emby", id: 992180193   
+mas "Flighty", id: 1358823008  
+mas "GarageBand", id: 682658836   
+mas "Homecoming for Mastodon", id: 1666139593
+mas "Hush", id: 1544743900  
+mas "iMovie", id: 408981434   
+mas "Infuse", id: 1136220934  
+mas "iStat Menus", id: 1319778037  
+mas "Ivory", id: 6444602274  
+mas "Keynote", id: 409183694   
+mas "Little Snitch Mini", id: 1629008763  
+mas "Monodraw", id: 920404675   
+mas "Notion Web Clipper", id: 1559269364  
+mas "Numbers", id: 409203825   
+mas "Obsidian Web Clipper", id: 6720708363  
+mas "Pages", id: 409201541   
+mas "Parcel", id: 639968404   
+mas "Slack", id: 803453959   
+mas "Tailscale", id: 1475387142  
+mas "TestFlight", id: 899247664   
+mas "Time Out", id: 402592703   
+mas "Windows App", id: 1295203466  
+mas "Xcode", id: 497799835   
+
