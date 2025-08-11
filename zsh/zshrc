@@ -13,6 +13,9 @@ set -o vi
 # disable flashing on macOS terminal
 set bell-style none
 
+# set base programs
+export EDITOR="hx"
+
 # set path
 export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/yosh/.cargo/bin
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
@@ -34,7 +37,6 @@ export NVM_DIR="$HOME/.nvm"
 # Created by `pipx` on 2025-02-03 14:28:18
 export PATH="$PATH:/Users/yosh/.local/bin"
 
-
 # atuin
 eval "$(atuin init zsh)"
 
@@ -49,7 +51,6 @@ eval "$(zoxide init zsh --cmd cd)"
 alias c="cargo"
 alias k="kubectl"
 alias g="git"
-
 
 # init the prompt
 eval "$(starship init zsh)"

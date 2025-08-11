@@ -1,3 +1,5 @@
+theme = "base16_transparent"
+
 [editor.statusline]
 left = ["mode", "spinner", "version-control", "file-name"]
 

@@ -3,7 +3,7 @@
 keybinds {
     normal {
         // Tmux prefix key (Ctrl-a) to enter tmux mode
-        bind "Ctrl a" { SwitchToMode "tmux"; }
+        bind "Ctrl t" { SwitchToMode "tmux"; }
     }
     
     tmux {
@@ -89,8 +89,24 @@ keybinds {
     }
 }
 
+themes {
+    base16-eighties {
+        fg "#d3d0c8"
+        bg "#515151"
+        black "#2d2d2d"
+        red "#f2777a"
+        green "#99cc99"
+        yellow "#ffcc66"
+        blue "#6699cc"
+        magenta "#cc99cc"
+        cyan "#66cccc"
+        white "#d3d0c8"
+        orange "#f99157"
+    }
+}
+
 // Theme configuration (optional)
-theme "default"
+theme "base16-eighties"
 
 // Other options to make it more tmux-like
 options {

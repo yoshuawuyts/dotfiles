@@ -1,24 +1,32 @@
 local wezterm = require 'wezterm'
+
+-- wezterm.gui is not available to the mux server, so take care to
+-- do something reasonable when this config is evaluated by the mux
+function get_appearance()
+  if wezterm.gui then
+    return wezterm.gui.get_appearance()
+  end
+  return 'Dark'
+end
+
+function scheme_for_appearance(appearance)
+  if appearance:find 'Dark' then
+    return 'Eighties (dark) (terminal.sexy)'
+  else
+    return 'Eighties (light) (terminal.sexy)'
+  end
+end
+
 return {
 	adjust_window_size_when_changing_font_size = false,
-	-- color_scheme = 'termnial.sexy',
-	color_scheme = 'Catppuccin Mocha',
+  color_scheme = scheme_for_appearance(get_appearance()),
+
 	enable_tab_bar = false,
 	font_size = 16.0,
 	font = wezterm.font('JetBrains Mono'),
-	-- macos_window_background_blur = 40,
 	macos_window_background_blur = 30,
 	
-	-- window_background_image = '/Users/omerhamerman/Downloads/3840x1080-Wallpaper-041.jpg',
-	-- window_background_image_hsb = {
-	-- 	brightness = 0.01,
-	-- 	hue = 1.0,
-	-- 	saturation = 0.5,
-	-- },
-	-- window_background_opacity = 0.92,
-	window_background_opacity = 1.0,
-	-- window_background_opacity = 0.78,
-	-- window_background_opacity = 0.20,
+	window_background_opacity = 0.92,
 	window_decorations = 'RESIZE',
 	keys = {
 		{
