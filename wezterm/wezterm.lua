@@ -13,13 +13,15 @@ function scheme_for_appearance(appearance)
   if appearance:find 'Dark' then
     return 'Eighties (dark) (terminal.sexy)'
   else
-    return 'Eighties (light) (terminal.sexy)'
+  	-- TODO: return a light theme
+    return 'Eighties (dark) (terminal.sexy)'
   end
 end
 
 return {
 	adjust_window_size_when_changing_font_size = false,
   color_scheme = scheme_for_appearance(get_appearance()),
+  audible_bell = 'Disabled',
 
 	enable_tab_bar = false,
 	font_size = 16.0,
