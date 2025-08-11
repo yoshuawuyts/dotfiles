@@ -1,10 +1,14 @@
 theme = "base16_transparent"
 
 [editor]
+end-of-line-diagnostics = "hint"
 rulers = [
     80,  # Rust max comment len
     100, # Rust max line len
 ]
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
 
 [editor.statusline]
 left = ["mode", "spinner", "version-control", "file-name"]
@@ -12,3 +16,11 @@ left = ["mode", "spinner", "version-control", "file-name"]
 [editor.lsp]
 enable = true
 
+[editor.indent-guides]
+render = true
+character = "╎"
+skip-levels = 1
+
+[keys.normal]
+# Print the current line's git blame information to the statusline.
+space.B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
