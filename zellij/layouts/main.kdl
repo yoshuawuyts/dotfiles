@@ -1,10 +1,16 @@
 layout {
     pane split_direction="vertical" {
-        pane command="hx"
+        pane command="hx ." name="Editor"
 
-	    pane split_direction="horizontal" {
-            pane command="lazyjj" borderless=true
- 	        pane
+	   pane split_direction="horizontal" stacked=true {
+           pane name="Files" command="yazi"
+           pane name="Version Control" command="lazyjj"
+           pane name="Terminal"
+        }
+
+        pane size=1 borderless=true {
+            plugin location="zellij:status-bar"
+            plugin location="zellij:tab-bar"
         }
     }
 }
