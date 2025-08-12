@@ -17,4 +17,5 @@ fi
 
 # Change the dir
 cd "$dir" || exit 1
-zellij --layout main
+name="$(basename "$dir")"
+zellij attach --create --force-run-commands "$name"
