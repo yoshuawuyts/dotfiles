@@ -1,0 +1,201 @@
+#!/usr/bin/env sh
+
+#
+# # zs - Alternative zellij session manager
+#
+# This script is supposed to replace the builtin zellij session manager.
+#
+# ## Differences between `zs` and the builtin zellij session manager
+#
+# The main feature `zs` provides - which zellij currently lacks - is that you
+# can switch to the last used session. A feature, also known from tmux.
+#
+# It also uses `fzf` to fuzzy find active sessions, dead sessions, zoxide
+# locations and paths in the home directory. I like `fzf` way more than the
+# builtin zellij session manager, as it provides vim keybindings (like `ctrl+n`
+# `ctrl+p` for next and previous entry).
+# 
+# Currently, `zs` lacks the feature to create a new session, as it is currently
+# possible with the builtin session manager.
+#
+# ## Configuration
+#
+# In order to use `zs` you need to configure zellij to use it. See the following
+# examples on how to do that.
+#
+# Replace the builtin session manager:
+#
+# ```kdl
+# # ...
+# keybinds {
+#     # ...
+#     shared_except "locked" {
+#         # ...
+#         // Session manager
+#         bind "Alt s" {
+#             Run "zs" {
+#                 floating true
+#                 move_to_focused_tab true
+#                 close_on_exit true
+#             }
+#             SwitchToMode "Normal"
+#         }
+#         # ...
+#     }
+#     # ...
+# }
+# # ...
+#
+# ```
+#
+# Use the "Switch to last session" feature:
+#
+# ```kdl
+# # ...
+# keybinds {
+#     # ...
+#     shared_except "locked" {
+#         # ...
+#         // Switch to recent/last session
+#         bind "Alt r" {
+#             Run "zs" "last-session" {
+#                 floating true
+#                 move_to_focused_tab true
+#                 close_on_exit true
+#             }
+#             SwitchToMode "Normal"
+#         }
+#         # ...
+#     }
+#     # ...
+# }
+# # ...
+#
+# ```
+#
+
+session_state_prefix="$HOME/.cache/zellij/session-state"
+
+update_session_state() {
+  current_session="$1"
+  # Update current session state only, if it differs from current.
+  if test "$current_session" != $(cat "$session_state_prefix.current"); then
+    cat "$session_state_prefix.current" > "$session_state_prefix.last"
+    echo -ne "$current_session" > "$session_state_prefix.current"
+  fi
+}
+
+switch_session() {
+  plugin_name="https://github.com/mostafaqanbaryan/zellij-switch/releases/download/v0.1.0/zellij-switch.wasm"
+  session_name="$1"
+  session_dir="$2"
+  session_identifier="${session_name}::${session_dir}"
+  # Do not switch, if session name is empty or if already attached to session.
+  if test -n "$session_name" && test "$session_name" != "$ZELLIJ_SESSION_NAME"; then
+    # Update current and last session names.
+    update_session_state "$session_name"
+    zellij pipe --plugin "$plugin_name" -- "$session_identifier"
+  fi
+}
+
+#-------------------------------------------------------------------------------
+
+cmd_switch_to_last_session() {
+  session_name="$(cat "$session_state_prefix.last")"
+  switch_session "$session_name" "$session_name"
+}
+
+cmd_run_session_manager() {
+  command_zellij_session_list="zellij ls -sn"
+  command_zellij_active_session_list="zellij ls -n | grep -v 'EXITED' | cut -d ' ' -f 1"
+  command_zoxide_list="zoxide query -l"
+  command_find_list="find ~ -maxdepth 3 -type d"
+
+  is_zellij_active() {
+    test -n "$ZELLIJ"
+  }
+
+  is_zellij_session() {
+    $command_zellij_session_list | grep -E "^$1\$"
+  }
+
+  prompt_active_sessions="active sessions> "
+  prompt_all_sessions="all sessions> "
+  prompt_zoxide="zoxide> "
+  prompt_find="find> "
+
+  active_sessions_bind="ctrl-a:change-prompt($prompt_active_sessions)+reload($command_zellij_active_session_list)"
+  all_sessions_bind="ctrl-s:change-prompt($prompt_all_sessions)+reload($command_zellij_session_list)"
+  zoxide_bind="ctrl-x:change-prompt($prompt_zoxide)+reload($command_zoxide_list)"
+  find_bind="ctrl-f:change-prompt($prompt_find)+reload($command_find_list)"
+
+  header=" ^a active ^s sessions ^x zoxide ^f find"
+  prompt="$prompt_all_sessions"
+
+  result=$(
+  ($command_zellij_session_list) | fzf \
+    --bind "$active_sessions_bind" \
+    --bind "$all_sessions_bind" \
+    --bind "$zoxide_bind" \
+    --bind "$find_bind" \
+    --header "$header" \
+    --prompt "$prompt"
+  )
+
+  # Check if an already existing zellij session was selected.
+  if is_zellij_session "$result"; then
+    if is_zellij_active; then
+      # Attach to existing session from inside zellij.
+      switch_session "$result" "$result"
+    else
+      update_session_state "$result"
+      # Attach to existing session from outside zellij.
+      zellij attach "$result"
+    fi
+  # If session does not exist yet, make sure we're dealing with a directory.
+  elif test -d "$result"; then
+    session_dir="$result"
+    session_name=$(basename "$result")
+    if is_zellij_active; then
+      # Create new session based on the selected directory from inside zellij.
+      switch_session "$session_name" "$session_dir"
+    else
+      # Create new session based on the selected directory from outside zellij.
+      pushd "$session_dir" >/dev/null
+      update_session_state "$session_name"
+      zellij attach -c "$session_name"
+    fi
+  else
+    exit 1
+  fi
+}
+
+cmd_show_help() {
+  echo "zs - Alternative zellij session manager"
+  echo ""
+  echo "USAGE:"
+  echo "    zs [SUBCOMMAND]"
+  echo ""
+  echo "SUBCOMMANDS:"
+  echo "    last-session    Switch to last/recent session"
+}
+
+#-------------------------------------------------------------------------------
+
+command="$1"
+case "$command" in
+  "")
+    cmd_run_session_manager
+    ;;
+  "last-session")
+    cmd_switch_to_last_session
+    ;;
+  "help" | "--help")
+    cmd_show_help
+    ;;
+  *)
+    echo "ERROR: Unkown command: $command"
+    cmd_show_help
+    exit 1
+    ;;
+esac

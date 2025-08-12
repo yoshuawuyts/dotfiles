@@ -8,3 +8,7 @@ mkdir -p "$HOME/.local/bin"
 src="$dirname/mx"
 dst="$HOME/.local/bin/mx"
 _link "$src" "$dst"
+
+src="$dirname/zs"
+dst="$HOME/.local/bin/zs"
+_link "$src" "$dst"
