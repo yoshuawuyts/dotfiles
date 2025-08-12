@@ -74,7 +74,8 @@
 # ```
 #
 
-session_state_prefix="$HOME/.cache/zellij/session-state"
+# session_state_prefix="$HOME/.cache/zellij/session-state"
+session_state_prefix="$HOME/Library/Caches/org.Zellij-Contributors.Zellij"
 
 get_session_state() {
   session_state_file="$session_state_prefix.$1"
