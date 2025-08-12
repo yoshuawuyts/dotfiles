@@ -5,11 +5,12 @@ layout {
 
 	        pane split_direction="horizontal" stacked=true {
                 pane name="Files" command="yazi"
+                pane name="GitHub" command="gh" args="dash"
                 pane name="Version Control" command="lazygit"
                 pane name="Terminal"
             }
         }
-        pane size=2 borderless=true {
+        pane size=1 borderless=true {
             plugin location="zellij:compact-bar"
         }
         pane size=2 borderless=true {

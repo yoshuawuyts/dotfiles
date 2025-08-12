@@ -1,75 +1,5 @@
-// Zellij configuration with tmux-like keybindings
-
+// Enable tmux-like scrollback
 keybinds {
-    normal {
-        // Tmux prefix key (Ctrl-a) to enter tmux mode
-        bind "Ctrl t" { SwitchToMode "tmux"; }
-    }
-    
-    tmux {
-        // Pane management - similar to tmux
-        bind "%" { NewPane "Right"; SwitchToMode "Normal"; }  // Split vertical
-        bind "\"" { NewPane "Down"; SwitchToMode "Normal"; }  // Split horizontal
-        bind "x" { CloseFocus; SwitchToMode "Normal"; }       // Close pane
-        bind "z" { ToggleFocusFullscreen; SwitchToMode "Normal"; } // Zoom pane
-        
-        // Pane navigation - arrow keys only
-        bind "Left" { MoveFocus "Left"; SwitchToMode "Normal"; }
-        bind "Right" { MoveFocus "Right"; SwitchToMode "Normal"; }
-        bind "Up" { MoveFocus "Up"; SwitchToMode "Normal"; }
-        bind "Down" { MoveFocus "Down"; SwitchToMode "Normal"; }
-        
-        // Tab/Window management
-        bind "c" { NewTab; SwitchToMode "Normal"; }           // New tab (window in tmux)
-        bind "n" { GoToNextTab; SwitchToMode "Normal"; }      // Next tab
-        bind "p" { GoToPreviousTab; SwitchToMode "Normal"; }  // Previous tab
-        bind "," { SwitchToMode "RenameTab"; }                // Rename tab
-        bind "&" { CloseTab; SwitchToMode "Normal"; }         // Close tab
-        
-        // Tab switching by number
-        bind "1" { GoToTab 1; SwitchToMode "Normal"; }
-        bind "2" { GoToTab 2; SwitchToMode "Normal"; }
-        bind "3" { GoToTab 3; SwitchToMode "Normal"; }
-        bind "4" { GoToTab 4; SwitchToMode "Normal"; }
-        bind "5" { GoToTab 5; SwitchToMode "Normal"; }
-        bind "6" { GoToTab 6; SwitchToMode "Normal"; }
-        bind "7" { GoToTab 7; SwitchToMode "Normal"; }
-        bind "8" { GoToTab 8; SwitchToMode "Normal"; }
-        bind "9" { GoToTab 9; SwitchToMode "Normal"; }
-        
-        // Session management
-        bind "d" { Detach; }                                  // Detach from session
-        bind "s" { SwitchToMode "Session"; }                  // Session list
-        bind "w" { SwitchToMode "Tab"; }                      // Window/tab list
-        
-        // Copy mode
-        bind "[" { SwitchToMode "Scroll"; }                   // Enter copy/scroll mode
-        
-        // Pane resizing with Ctrl + arrow keys
-        bind "Ctrl Left" { Resize "Increase Left"; }
-        bind "Ctrl Right" { Resize "Increase Right"; }
-        bind "Ctrl Up" { Resize "Increase Up"; }
-        bind "Ctrl Down" { Resize "Increase Down"; }
-        
-        // Alternative pane resizing with Shift + arrow keys
-        bind "Shift Left" { Resize "Increase Left"; }
-        bind "Shift Right" { Resize "Increase Right"; }
-        bind "Shift Up" { Resize "Increase Up"; }
-        bind "Shift Down" { Resize "Increase Down"; }
-        
-        // Other tmux-like bindings
-        bind "?" { SwitchToMode "Normal"; }                   // Show key bindings (exit for now)
-        bind ":" { SwitchToMode "Normal"; }                   // Command mode (not directly available)
-        bind "q" { SwitchToMode "Normal"; }                   // Display pane numbers (exit for now)
-        bind "Space" { NextSwapLayout; SwitchToMode "Normal"; } // Next layout
-        bind "o" { FocusNextPane; SwitchToMode "Normal"; }    // Select next pane
-        
-        // Exit tmux mode
-        bind "Ctrl c" { SwitchToMode "Normal"; }
-        bind "Esc" { SwitchToMode "Normal"; }
-        bind "Enter" { SwitchToMode "Normal"; }
-    }
-    
     // Keep scroll mode with arrow key navigation
     scroll {
         bind "Ctrl c" { ScrollToBottom; SwitchToMode "Normal"; }
@@ -105,28 +35,8 @@ themes {
     }
 }
 
-// Theme configuration (optional)
+default_layout "main"
 theme "base16-eighties"
 
-// Other options to make it more tmux-like
-options {
-    default_shell "zsh"  // or "bash", "fish", etc.
-    default_cwd "."
-    
-    // UI options
-    pane_frames true
-    theme "default"
-    
-    // Mouse support (like tmux mouse mode)
-    mouse_mode true
-    
-    // Copy to system clipboard
-    copy_clipboard "system"
-    
-    // Scrollback buffer
-    scroll_buffer_size 10000
-}
-
-// Layout configuration (optional)
-// This creates a default layout similar to tmux
-default_layout "main"
+copy_command = "pbcopy"
+mouse_mode true
