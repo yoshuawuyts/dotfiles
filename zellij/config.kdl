@@ -129,12 +129,4 @@ options {
 
 // Layout configuration (optional)
 // This creates a default layout similar to tmux
-// default_layout "compact"
-
-layouts {
-    compact {
-        tab {
-            pane
-        }
-    }
-}
+default_layout "main"

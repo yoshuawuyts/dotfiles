@@ -11,7 +11,21 @@ rulers = [
 cursor-line = "warning"
 
 [editor.statusline]
-left = ["mode", "spinner", "version-control", "file-name"]
+left = [
+    "mode",
+    "file-name",
+    "read-only-indicator",
+    "file-modification-indicator"
+]
+right = [
+    "diagnostics",
+    "spinner",
+    "file-name",
+    "selections",
+    "register",
+    "position",
+    "file-encoding",
+]
 
 [editor.indent-guides]
 render = true
