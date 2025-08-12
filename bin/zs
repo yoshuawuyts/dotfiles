@@ -76,11 +76,25 @@
 
 session_state_prefix="$HOME/.cache/zellij/session-state"
 
+get_session_state() {
+  session_state_file="$session_state_prefix.$1"
+  test -f "$session_state_file" || touch "$session_state_file"
+  cat "$session_state_file"
+}
+
+get_session_current() {
+  get_session_state "current"
+}
+
+get_session_last() {
+  get_session_state "last"
+}
+
 update_session_state() {
   current_session="$1"
   # Update current session state only, if it differs from current.
-  if test "$current_session" != $(cat "$session_state_prefix.current"); then
-    cat "$session_state_prefix.current" > "$session_state_prefix.last"
+  if test "$current_session" != "$(get_session_current)"; then
+    get_session_current > "$session_state_prefix.last"
     echo -ne "$current_session" > "$session_state_prefix.current"
   fi
 }
@@ -101,7 +115,7 @@ switch_session() {
 #-------------------------------------------------------------------------------
 
 cmd_switch_to_last_session() {
-  session_name="$(cat "$session_state_prefix.last")"
+  session_name="$(get_session_last)"
   switch_session "$session_name" "$session_name"
 }
 
