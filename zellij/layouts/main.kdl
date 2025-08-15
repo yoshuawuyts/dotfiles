@@ -1,7 +1,7 @@
 layout {
     pane split_direction="horizontal" {
         pane split_direction="vertical" {
-            pane name="Editor" command="hx" size="100"
+            pane name="Editor" command="nvim" size="100"
 
 	        pane split_direction="horizontal" stacked=true {
                 pane name="Files" command="yazi"
