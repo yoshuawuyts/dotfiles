@@ -14,7 +14,7 @@ set -o vi
 set bell-style none
 
 # set base programs
-export EDITOR="hx"
+export EDITOR="nvim"
 
 # set path
 export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/yosh/.cargo/bin
