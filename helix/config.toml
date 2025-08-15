@@ -8,7 +8,8 @@ rulers = [
 ]
 
 [editor.inline-diagnostics]
-cursor-line = "warning"
+cursor-line = "disable"
+other-lines = "disable"
 
 [editor.statusline]
 left = [
