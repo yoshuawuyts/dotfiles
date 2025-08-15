@@ -38,5 +38,4 @@ themes {
 default_layout "main"
 theme "base16-eighties"
 
-copy_command = "pbcopy"
 mouse_mode true
