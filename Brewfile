@@ -1,9 +1,9 @@
 tap "nikitabobko/tap"
 
-
 brew "ast-grep"
 brew "atuin"
 brew "autoconf"
+brew "bacon"
 brew "bat"
 brew "btop"
 brew "cairo"
@@ -20,6 +20,7 @@ brew "flamegraph"
 brew "fontconfig"
 brew "freetype"
 brew "fribidi"
+brew "fselect"
 brew "fzf"
 brew "gawk"
 brew "gettext"
@@ -35,6 +36,7 @@ brew "grep"
 brew "haskell-stack"
 brew "helix"
 brew "htop"
+brew "hyperfine"
 brew "imagemagick"
 brew "jj"
 brew "jq"
@@ -51,6 +53,7 @@ brew "mdbook"
 brew "mermaid-cli"
 brew "neovim"
 brew "ninja"
+brew "nushell"
 brew "ollama"
 brew "openjpeg"
 brew "oras"
@@ -70,6 +73,7 @@ brew "tectonic"
 brew "tldr"
 brew "tree"
 brew "typst"
+brew "uutils-coreutils"
 brew "webp"
 brew "yazi"
 brew "zellij"
@@ -90,6 +94,7 @@ cask "nikitabobko/tap/aerospace"
 cask "signal"
 cask "vlc"
 cask "wezterm"
+
 mas "1Password for Safari", id: 1569813296  
 mas "Adblock Plus", id: 1432731683  
 mas "Amphetamine", id: 937984704   
@@ -97,9 +102,7 @@ mas "DaVinci Resolve", id: 571213070
 mas "Emby", id: 992180193   
 mas "Flighty", id: 1358823008  
 mas "GarageBand", id: 682658836   
-mas "iMovie", id: 408981434   
 mas "Infuse", id: 1136220934  
-mas "iStat Menus", id: 1319778037  
 mas "Ivory", id: 6444602274  
 mas "Keynote", id: 409183694   
 mas "Little Snitch Mini", id: 1629008763  
@@ -114,6 +117,8 @@ mas "Tailscale", id: 1475387142
 mas "TestFlight", id: 899247664   
 mas "Time Out", id: 402592703   
 mas "Xcode", id: 497799835   
+mas "iMovie", id: 408981434   
+mas "iStat Menus", id: 1319778037  
 
 # Microsoft
 mas "Azure VPN Client", id: 1553936137  
