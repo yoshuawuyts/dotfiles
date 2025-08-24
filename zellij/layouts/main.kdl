@@ -2,19 +2,15 @@ layout {
     pane split_direction="horizontal" {
         pane split_direction="vertical" {
             pane name="Editor" command="nvim" size="100"
-
 	        pane split_direction="horizontal" stacked=true {
                 pane name="Files" command="yazi"
-                pane name="GitHub" command="gh" args="dash"
                 pane name="Version Control" command="lazygit"
-                pane name="Terminal"
+                pane name="Terminal" focus=true
+		pane name="Compiler" command="bacon"
             }
         }
         pane size=1 borderless=true {
             plugin location="zellij:compact-bar"
         }
-        // pane size=2 borderless=true {
-        //     plugin location="zellij:status-bar"
-        // }
     }
 }
