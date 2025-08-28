@@ -1,7 +1,10 @@
 return {
   {
-    "deparr/tairiki.nvim",
+    "RRethy/nvim-base16",
     lazy = false,
-    priority = 1000, -- recommended if you use tairiki as your default theme
+    priority = 1000,
+    config = function()
+      vim.cmd("colorscheme base16-tomorrow-night-eighties")
+    end,
   },
 }
