@@ -8,7 +8,6 @@ brew "bat"
 brew "btop"
 brew "cairo"
 brew "cmake"
-brew "coreutils"
 brew "docker"
 brew "docker-completion"
 brew "dtc"
@@ -94,6 +93,7 @@ cask "nikitabobko/tap/aerospace"
 cask "signal"
 cask "vlc"
 cask "wezterm"
+cask "thunderbird"
 
 mas "1Password for Safari", id: 1569813296  
 mas "Adblock Plus", id: 1432731683  
