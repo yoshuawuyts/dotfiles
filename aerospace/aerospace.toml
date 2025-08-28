@@ -118,6 +118,7 @@ outer.right =      20
     alt-3 = 'workspace 3'
     alt-4 = 'workspace 4'
     alt-5 = 'workspace 5'
+    alt-6 = 'workspace 6'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     alt-shift-0 = 'move-node-to-workspace 0'
@@ -126,6 +127,7 @@ outer.right =      20
     alt-shift-3 = 'move-node-to-workspace 3'
     alt-shift-4 = 'move-node-to-workspace 4'
     alt-shift-5 = 'move-node-to-workspace 5'
+    alt-shift-6 = 'move-node-to-workspace 6'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
@@ -171,6 +173,10 @@ if.app-name-regex-substring = 'Safari'
 run = ['move-node-to-workspace 2']
 
 [[on-window-detected]]
+if.app-name-regex-substring = 'firefox'
+run = ['move-node-to-workspace 2']
+
+[[on-window-detected]]
 if.app-name-regex-substring = 'Obsidian'
 run = ['move-node-to-workspace 3']
 
@@ -189,4 +195,9 @@ run = ['move-node-to-workspace 4']
 [[on-window-detected]]
 if.app-name-regex-substring = 'Outlook'
 run = ['move-node-to-workspace 5']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'thunderbird'
+run = ['move-node-to-workspace 5']
+
 
