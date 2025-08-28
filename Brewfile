@@ -50,6 +50,7 @@ brew "make"
 brew "mas"
 brew "mdbook"
 brew "mermaid-cli"
+brew "mprocs"
 brew "neovim"
 brew "ninja"
 brew "nushell"
@@ -91,9 +92,9 @@ cask "josm"
 cask "leader-key"
 cask "nikitabobko/tap/aerospace"
 cask "signal"
+cask "thunderbird"
 cask "vlc"
 cask "wezterm"
-cask "thunderbird"
 
 mas "1Password for Safari", id: 1569813296  
 mas "Adblock Plus", id: 1432731683  
