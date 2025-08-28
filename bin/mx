@@ -4,18 +4,27 @@
 
 # Ensure first argument is provided
 if [ -z "$1" ]; then
-  echo "Usage: $0 <session-name>"
+  echo "Usage: $0 <tab-name>"
   exit 1
 fi
 
 # Find a dir
 dir="$(zoxide query "$1")"
 if [ $? -ne 0 ]; then
-    echo "could not find a match for $1"
-    exit 1
+  echo "could not find a match for $1"
+  exit 1
 fi
 
 # Change the dir
 cd "$dir" || exit 1
 name="$(basename "$dir")"
-zellij attach --create --force-run-commands "$name"
+
+# Check if we're already in a Zellij session
+if [ -n "$ZELLIJ" ]; then
+  # We're in Zellij, create a new tab
+  zellij action new-tab --layout main --name "$name" --cwd "$dir"
+else
+  # Not in Zellij, start a new session with a tab
+  zellij --session main --layout default attach --create --force-run-commands \
+    options --default-cwd "$dir"
+fi
