@@ -35,6 +35,7 @@ themes {
     }
 }
 
+copy_command "pbcopy"
 default_layout "main"
 theme "base16-eighties"
 
