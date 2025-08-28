@@ -6,7 +6,7 @@ layout {
                 pane name="Files" command="yazi"
                 pane name="Version Control" command="lazygit"
                 pane name="Terminal" focus=true
-		pane name="Compiler" command="bacon"
+		pane name="Tasks" command="mprocs"
             }
         }
         pane size=1 borderless=true {
