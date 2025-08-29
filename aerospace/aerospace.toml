@@ -112,13 +112,14 @@ outer.right =      20
     cmd-alt-equal = 'resize smart +50'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-    alt-0 = 'workspace 0'
-    alt-1 = 'workspace 1'
-    alt-2 = 'workspace 2'
-    alt-3 = 'workspace 3'
-    alt-4 = 'workspace 4'
-    alt-5 = 'workspace 5'
-    alt-6 = 'workspace 6'
+    alt-0 = 'workspace 0' # Elgato camera
+    alt-1 = 'workspace 1' # Terminal
+    alt-2 = 'workspace 2' # Browser
+    alt-3 = 'workspace 3' # Notes
+    alt-4 = 'workspace 4' # Chat
+    alt-5 = 'workspace 5' # Email
+    alt-6 = 'workspace 6' # Media
+    alt-9 = 'workspace 9' # Scratch
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     alt-shift-0 = 'move-node-to-workspace 0'
@@ -128,6 +129,7 @@ outer.right =      20
     alt-shift-4 = 'move-node-to-workspace 4'
     alt-shift-5 = 'move-node-to-workspace 5'
     alt-shift-6 = 'move-node-to-workspace 6'
+    alt-shift-9 = 'move-node-to-workspace 9'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
