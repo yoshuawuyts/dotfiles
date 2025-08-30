@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # set -e pipefail
+set -x
 
 # Ensure first argument is provided
 if [ -z "$1" ]; then
