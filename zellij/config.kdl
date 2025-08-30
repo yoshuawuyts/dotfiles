@@ -17,6 +17,12 @@ keybinds {
         bind "Home" { ScrollToTop; }
         bind "End" { ScrollToBottom; }
     }
+
+    shared_except "locked" {
+        // Don't shift between tabs.
+        bind "Alt h" "Alt Left" { MoveFocus "Left"; }
+        bind "Alt l" "Alt Right" { MoveFocus "Right"; }
+    }
 }
 
 themes {
