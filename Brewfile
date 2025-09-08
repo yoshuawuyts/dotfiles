@@ -95,6 +95,7 @@ cask "signal"
 cask "thunderbird"
 cask "vlc"
 cask "wezterm"
+cask "cyberduck"
 
 mas "1Password for Safari", id: 1569813296  
 mas "Adblock Plus", id: 1432731683  
