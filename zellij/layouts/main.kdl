@@ -1,12 +1,12 @@
 layout {
     pane split_direction="horizontal" {
         pane split_direction="vertical" {
-            pane name="Editor" command="nvim" size="100"
+            pane name="Editor" command="nvim"
 	        pane split_direction="horizontal" stacked=true {
-                pane name="Files" command="yazi"
+                pane name="Files" command="yazi" args="."
                 pane name="Version Control" command="lazygit"
                 pane name="Terminal" focus=true
-		            pane name="Tasks" command="mprocs"
+		            pane name="Tasks" command="mprocs" args="'cargo check' 'cargo test' 'cargo run'"
             }
         }
         pane size=1 borderless=true {
