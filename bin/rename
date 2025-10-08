@@ -1,0 +1,5 @@
+#!/bin/sh
+
+local from="$1"
+local to="$2"
+fd "^$from" -x bash -c 'mv -v "$1" "${1/$from/$to}"' _ {}
