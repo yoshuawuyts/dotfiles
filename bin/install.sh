@@ -12,3 +12,7 @@ _link "$src" "$dst"
 src="$dirname/zs"
 dst="$HOME/.local/bin/zs"
 _link "$src" "$dst"
+
+src="$dirname/rename"
+dst="$HOME/.local/bin/rename"
+_link "$src" "$dst"
