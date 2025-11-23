@@ -41,7 +41,8 @@ export PATH="$PATH:/Users/yosh/.local/bin"
 eval "$(atuin init zsh)"
 
 # setup aliases
-alias ls="eza -lah --icons=auto --no-permissions --no-user --icons=always --time-style='+%Y-%m-%d %H:%M' --sort type"
+alias l="eza -lah --icons=auto --no-permissions --no-user --icons=always --time-style='+%Y-%m-%d %H:%M' --sort type"
+alias ls="eza"
 alias t="eza -lah --tree --icons=auto --no-permissions --no-user --icons=always --no-time --git-ignore --sort type"
 alias cat="bat"
 alias grep="rg"

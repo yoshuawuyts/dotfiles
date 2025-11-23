@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# retry.sh: Retry a command until it succeeds.
+# Usage: ./retry.sh <command> [args...]
+
+if [ "$#" -lt 1 ]; then
+  echo "Usage: $0 <command> [args...]"
+  exit 1
+fi
+
+while true; do
+  "$@"
+  status=$?
+  if [ "$status" -eq 0 ]; then
+    exit 0
+  fi
+  echo "Command failed with exit code $status. Retrying..." >&2
+  sleep 0.2
+done

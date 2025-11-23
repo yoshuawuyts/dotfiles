@@ -16,3 +16,7 @@ _link "$src" "$dst"
 src="$dirname/rename"
 dst="$HOME/.local/bin/rename"
 _link "$src" "$dst"
+
+src="$dirname/retry"
+dst="$HOME/.local/bin/retry"
+_link "$src" "$dst"
