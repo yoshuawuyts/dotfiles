@@ -20,3 +20,8 @@ _link "$src" "$dst"
 src="$dirname/retry"
 dst="$HOME/.local/bin/retry"
 _link "$src" "$dst"
+
+src="$dirname/git-filter-repo"
+dst="$HOME/.local/bin/git-filter-repo"
+_link "$src" "$dst"
+
