@@ -1,0 +1,21 @@
+#!/bin/sh
+#
+# Append a `Signed-off-by` trailer to every commit message.
+#
+# Installed globally via `core.hooksPath`, which replaces per-repo `.git/hooks`
+# wholesale, so chain to the repo-local hook first if one exists.
+
+set -e
+
+# Deliberately not `--git-path hooks/...`, which resolves back to
+# `core.hooksPath` and would make this hook call itself.
+local_hook="$(git rev-parse --git-dir)/hooks/prepare-commit-msg"
+if [ -x "$local_hook" ]; then
+  "$local_hook" "$@"
+fi
+
+# `--if-exists doNothing` keeps `git commit -s` and `--amend` from duplicating
+# the trailer.
+git interpret-trailers --if-exists doNothing \
+  --trailer "Signed-off-by: $(git config user.name) <$(git config user.email)>" \
+  --in-place "$1"
